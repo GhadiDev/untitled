@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'viewmodels/home_provider.dart';
+import 'viewmodel/home_provider.dart';
 import 'ui/home_screen.dart';
 
 void main() {

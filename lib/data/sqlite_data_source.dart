@@ -2,8 +2,10 @@ import 'package:sqflite/sqflite.dart';
 import 'package:path/path.dart';
 
 class SqliteDataSource {
+  //Object for creating database
   static Database? _database;
-  static const String _databaseName = 'shopping_cart.db';
+  //Database name
+  static const String _databaseName = 'task.db';
   static const int _databaseVersion = 1;
 
   // Table names

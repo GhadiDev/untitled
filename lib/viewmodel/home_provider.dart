@@ -5,6 +5,8 @@ import '../models/product.dart';
 import '../models/cart_item_with_product.dart';
 
 class HomeProvider with ChangeNotifier {
+
+  //Connect to SQLite database
   final SqliteDataSource _dataSource = SqliteDataSource();
 
   // State variables
@@ -59,7 +61,6 @@ class HomeProvider with ChangeNotifier {
     await _dataSource.insertCategory('مستورد');
     await _dataSource.insertCategory('أجبان قابلة للدهن');
     await _dataSource.insertCategory('أجبان');
-    await _dataSource.insertCategory('معجنات');
 
     await _dataSource.insertProduct(
       name: 'Double Cheeseburger',
@@ -98,7 +99,7 @@ class HomeProvider with ChangeNotifier {
       name: ' King Chicken Tasty',
       price: 29.57,
       image: 'assets/images/6.png',
-      categoryId: 3,
+      categoryId: 2,
     );
 
   }

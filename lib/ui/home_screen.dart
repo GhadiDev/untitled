@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:untitled/ui/check_out_screen.dart';
-import '../viewmodels/home_provider.dart';
+import '../viewmodel/home_provider.dart';
 import '../models/product.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -30,7 +30,7 @@ class _HomeScreenState extends State<HomeScreen> {
           'التصنيفات',
           style: TextStyle(
             fontWeight: FontWeight.bold,
-            color: Colors.black,
+            color: Color.fromRGBO(61, 79, 82, 1),
 
           ),
         ),
@@ -39,9 +39,8 @@ class _HomeScreenState extends State<HomeScreen> {
         centerTitle: true,
         actions: [
           IconButton(
-            icon: const Icon(Icons.search, color: Colors.black),
+            icon: const Icon(Icons.search, color: Color.fromRGBO(24, 52, 69, 1)),
             onPressed: () {
-              // TODO: Implement search functionality
             },
           ),
         ],
@@ -84,7 +83,7 @@ class _HomeScreenState extends State<HomeScreen> {
 
               // Bottom cart summary
               _buildCartSummary(provider),
-              SizedBox(height: 20),
+              SizedBox(height: 21),
             ],
           );
         },
@@ -97,19 +96,11 @@ class _HomeScreenState extends State<HomeScreen> {
       height: 60,
       padding: const EdgeInsets.symmetric(vertical: 8),
       child: ListView.builder(
+        // Direction
         scrollDirection: Axis.horizontal,
         padding: const EdgeInsets.symmetric(horizontal: 16),
         itemCount: provider.categories.length, // +1 for "All" category
         itemBuilder: (context, index) {
-          // if (index == 0) {
-          //   // "All" category
-          //   final isSelected = provider.selectedCategoryId == 0;
-          //   return _buildCategoryChip(
-          //     'All',
-          //     isSelected,
-          //     () => provider.selectCategory(0),
-          //   );
-          // }
 
           final category = provider.categories[index];
           final isSelected = provider.selectedCategoryId == category.id;
@@ -132,25 +123,22 @@ class _HomeScreenState extends State<HomeScreen> {
         child: Container(
           padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
           decoration: BoxDecoration(
-            color: isSelected ? Color.fromRGBO(242, 247, 253, 1) : Colors.white,
+            color: isSelected ? Color.fromRGBO(226, 233, 242, 1) : Color.fromRGBO(242, 242, 242, 1),
             borderRadius: BorderRadius.circular(20),
-            border: Border.all(
-              color: isSelected ? Colors.blue[400]! : Colors.grey[300]!,
-            ),
+
           ),
           child: Row(
             mainAxisSize: MainAxisSize.min,
             children: [
               if (isSelected) ...[
-                const Icon(Icons.check, color: Colors.black, size: 16),
+                const Icon(Icons.check, color: Color.fromRGBO(7, 51, 70, 1), size: 16),
                 const SizedBox(width: 4),
               ],
               Text(
                 name,
                 style: TextStyle(
-                  fontFamily: "markazitext",
-                  color: isSelected ? Colors.black : Colors.grey[700],
-                  fontWeight: isSelected ? FontWeight.bold : FontWeight.normal,
+                  color: isSelected ? Color.fromRGBO(98, 163, 210, 1) : Color.fromRGBO(38, 66, 80, 1),
+                  fontWeight: FontWeight.bold ,
                 ),
               ),
             ],
@@ -237,8 +225,7 @@ class _HomeScreenState extends State<HomeScreen> {
               style: TextStyle(
                 fontWeight: FontWeight.bold,
                 fontSize: 14,
-
-                color: const Color.fromARGB(195, 4, 70, 128),
+                color: const Color.fromRGBO(14, 52, 70, 1),
               ),
               maxLines: 1,
               overflow: TextOverflow.ellipsis,
@@ -254,7 +241,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   child: Text(
                     '${product.price.toStringAsFixed(2)} SR',
                     style: TextStyle(
-                      color: Colors.blue[600],
+                      color: Color.fromRGBO(104, 173, 219, 1),
                       fontSize: 15,
                       fontWeight: FontWeight.bold,
                     ),
@@ -293,8 +280,8 @@ class _HomeScreenState extends State<HomeScreen> {
         return Container(
           padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 5),
           decoration: BoxDecoration(
-            color: Color.fromRGBO(221, 235, 240, 1),
-            borderRadius: BorderRadius.circular(16),
+            color: Color.fromRGBO(238, 245, 253, 1),
+            borderRadius: BorderRadius.circular(8),
           ),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -308,7 +295,7 @@ class _HomeScreenState extends State<HomeScreen> {
 
                 child: Icon(
                   Icons.remove,
-                  color: Color.fromARGB(255, 51, 50, 148),
+                  color: Color.fromRGBO(170, 175, 179, 1),
                   size: 20,
                 ),
               ),
@@ -318,6 +305,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 quantity.toString(),
                 style: const TextStyle(
                   fontWeight: FontWeight.bold,
+                  color: Color.fromRGBO(36, 65, 75, 1),
                   fontSize: 16,
                 ),
               ),
@@ -327,7 +315,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 onTap: () => _addToCart(product, provider),
                 child: const Icon(
                   Icons.add,
-                  color: Color.fromARGB(255, 51, 50, 148),
+                  color: Color.fromRGBO(105, 162, 199, 1),
                   size: 20,
                 ),
               ),
@@ -341,10 +329,10 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget _buildCartSummary(HomeProvider provider) {
     return Container(
       margin: const EdgeInsets.symmetric(horizontal: 10),
-      height: 60,
+      height: 50,
       padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 8),
       decoration: BoxDecoration(
-        color: Color.fromRGBO(86, 157, 209, 1),
+        color: Color.fromRGBO(88, 159, 211, 1),
         borderRadius: BorderRadius.circular(20),
         boxShadow: [
           BoxShadow(
@@ -360,10 +348,7 @@ class _HomeScreenState extends State<HomeScreen> {
           // View Cart button
           GestureDetector(
             onTap: () {
-              // TODO: Navigate to cart screen
-              // ScaffoldMessenger.of(context).showSnackBar(
-              //   const SnackBar(content: Text('Cart screen coming soon!')),
-              // );
+
               Navigator.push(
                 context,
                 MaterialPageRoute(
@@ -379,10 +364,8 @@ class _HomeScreenState extends State<HomeScreen> {
                 Text(
                   'عرض السلة',
                   style: TextStyle(
-                    fontFamily: 'markazitext',
-                    color: Colors.white,
-                    fontWeight: FontWeight.bold,
-                    fontSize: 16,
+                    color: Color.fromRGBO(222, 249, 251, 1),
+                    fontSize: 20,
                   ),
                 ),
               ],
@@ -393,9 +376,8 @@ class _HomeScreenState extends State<HomeScreen> {
           Text(
             '${provider.totalCartPrice.toStringAsFixed(2)} SAR',
             style: const TextStyle(
-              color: Colors.white,
+              color: Color.fromRGBO(222, 249, 251, 1),
               fontWeight: FontWeight.bold,
-
               fontSize: 18,
             ),
             overflow: TextOverflow.ellipsis,
@@ -416,11 +398,6 @@ class _HomeScreenState extends State<HomeScreen> {
   }
 
   void _removeFromCart(Product product, HomeProvider provider) {
-    // Find the cart item to remove
-    // final cartItem =
-    //     provider.cartItems
-    //         .where((item) => item.product.id == product.id)
-    //         .firstOrNull;
 
     if (product != null) {
       provider.removeProductFromCart(product.id!);
