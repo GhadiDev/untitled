@@ -63,62 +63,44 @@ class HomeProvider with ChangeNotifier {
 
     await _dataSource.insertProduct(
       name: 'Double Cheeseburger',
-      price: 999.99,
+      price: 32.99,
       image: 'assets/images/1.png',
       categoryId: 1,
     );
     await _dataSource.insertProduct(
       name: 'Chicken Burger',
-      price: 1199.99,
-      image: 'assets/images/1.png',
+      price: 29.99,
+      image: 'assets/images/2.png',
       categoryId: 1,
     );
     await _dataSource.insertProduct(
-      name: 'Double Cheeseburger',
-      price: 799.99,
-      image: 'assets/images/1.png',
+      name: 'Hamburger',
+      price: 26.39,
+      image: 'assets/images/3.png',
       categoryId: 1,
     );
 
-    await _dataSource.insertProduct(
-      name: 'Double Cheeseburger',
-      price: 150.00,
-      image: 'assets/images/1.png',
-      categoryId: 2,
-    );
-    await _dataSource.insertProduct(
-      name: 'Cheeseburger',
-      price: 89.99,
-      image: 'assets/images/1.png',
-      categoryId: 2,
-    );
-
-    await _dataSource.insertProduct(
-      name: 'Cheeseburger',
-      price: 49.99,
-      image: 'assets/images/1.png',
-      categoryId: 3,
-    );
     await _dataSource.insertProduct(
       name: 'Double King Chicken Tasty',
-      price: 39.99,
-      image: 'assets/images/1.png',
+      price: 350.00,
+      image: 'assets/images/4.png',
+      categoryId: 2,
+    );
+    await _dataSource.insertProduct(
+      name: 'Chicken burger',
+      price: 29.57,
+      image: 'assets/images/5.png',
+      categoryId: 2,
+    );
+
+
+    await _dataSource.insertProduct(
+      name: ' King Chicken Tasty',
+      price: 29.57,
+      image: 'assets/images/6.png',
       categoryId: 3,
     );
 
-    await _dataSource.insertProduct(
-      name: 'King Chicken Tasty',
-      price: 199.99,
-      image: 'assets/images/1.png',
-      categoryId: 4,
-    );
-
-    await _dataSource.insertProduct(
-      name: 'King Chicken Tasty',
-      price: 29.99,
-      image: 'assets/images/1.png',
-      categoryId: 5,
-    );
   }
 
   // Load categories from database
